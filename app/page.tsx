@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 "use client";
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence, cubicBezier } from "framer-motion";
 import {
   Menu,
@@ -14,6 +14,9 @@ import {
   MapPin,
   ShieldCheck,
   Clock,
+  Search,
+  UserPlus,
+  AlertCircle,
 } from "lucide-react";
 import Image from "next/image";
 import WhatsAppIcon from "../components/ui/WhatsAppIcon";
@@ -81,6 +84,26 @@ const App = () => {
         "NIB terbit resmi, sudah termasuk akun OSS dan dokumen pendukung lainnya. Siap digunakan untuk urusan bank atau tender.",
       icon: <Sparkles className="w-8 h-8 text-white-700" />,
     },
+  ];
+
+    const ossPainPoints = [
+    "RDTR tidak sesuai atau ditolak sistem otomatis",
+    "Perubahan SK Kemenkumham ditolak/tidak sinkron",
+    "Kode KBLI tidak muncul atau salah klasifikasi risiko",
+    "Status Akun 'Tidak Efektif' berkepanjangan",
+    "Kendala migrasi data dari OSS 1.1 ke OSS RBA",
+    "KKPR (Kesesuaian Tata Ruang) tidak terbit otomatis",
+    "NIK pemilik terblokir atau terdeteksi data ganda",
+    "Sertifikat Standar (SS) menggantung tanpa verifikasi",
+    "Kesulitan integrasi sistem PBG (IMB) & SLF",
+    "Error sistem 'Gateway Timeout' saat input jam sibuk"
+  ];
+
+  const advantages = [
+    { title: "Free Email Bisnis", desc: "Dapatkan email profesional untuk kredibilitas usaha Anda.", icon: <Mail className="text-emerald-600" /> },
+    { title: "Free Cek RDTR", desc: "Pengecekan Rencana Detail Tata Ruang agar izin tidak ditolak.", icon: <Search className="text-emerald-600" /> },
+    { title: "Harga Khusus Notaris", desc: "Kerjasama B2B spesial untuk rekanan kantor Notaris & PPAT.", icon: <UserPlus className="text-emerald-600" /> },
+    { title: "Free Cek Zona Ruang", desc: "Analisis zona tata ruang & pemanfaatan lahan secara akurat.", icon: <MapPin className="text-emerald-600" /> }
   ];
 
   const pricing = [
@@ -314,6 +337,79 @@ const App = () => {
           transition={{ duration: 8, repeat: Infinity }}
           className="absolute -bottom-24 -right-24 w-[500px] h-[500px] bg-emerald-500 rounded-full blur-[120px] pointer-events-none"
         />
+      </section>
+
+      {/* OSS Pain Points Section */}
+      <section id="masalah" className="py-32 bg-white">
+        <div className="max-w-7xl mx-auto px-6 lg:px-10">
+          <motion.div variants={fadeInUp} initial="hidden" whileInView="visible" viewport={{ once: true }} className="flex flex-col md:flex-row gap-16 items-center">
+            <div className="md:w-1/2">
+               <h2 className="text-4xl md:text-6xl font-black text-emerald-950 uppercase hero-title mb-8">OSS Itu <br/><span className="text-red-500">RUMIT & MELELAHKAN?</span></h2>
+               <p className="text-slate-500 text-lg font-bold uppercase tracking-widest mb-10">Kami paham rasa frustrasi Anda.</p>
+               <div className="bg-red-50 border-l-4 border-red-500 p-8 rounded-2xl">
+                  <p className="text-red-900 font-bold italic leading-relaxed">{`"Sistem OSS RBA seringkali memberikan error yang tidak intuitif, membuat pelaku usaha terjebak dalam birokrasi digital yang tak berujung."`}</p>
+               </div>
+            </div>
+            <div className="md:w-1/2 grid grid-cols-1 gap-4">
+              <motion.div variants={staggerContainer} initial="hidden" whileInView="visible" viewport={{ once: true }} className="space-y-3">
+                {ossPainPoints.map((point, i) => (
+                  <motion.div key={i} variants={fadeInUp} className="flex items-center gap-4 bg-slate-50 p-4 rounded-xl border border-slate-100 hover:border-red-200 transition-all group">
+                    <div className="w-8 h-8 rounded-lg bg-red-100 flex items-center justify-center text-red-600 group-hover:bg-red-600 group-hover:text-white transition-colors">
+                      <AlertCircle size={18} />
+                    </div>
+                    <span className="text-sm font-bold text-slate-700 uppercase tracking-tight">{point}</span>
+                  </motion.div>
+                ))}
+              </motion.div>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Ease Features Section */}
+      <section id="kenapa-kami" className="py-32 bg-slate-50">
+        <div className="max-w-7xl mx-auto px-6 lg:px-10">
+          <motion.div variants={staggerContainer} initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-100px" }} className="grid md:grid-cols-3 gap-1 shadow-2xl shadow-slate-200/50 rounded-[50px] overflow-hidden bg-slate-100 border border-slate-100">
+            {features.map((feature, idx) => (
+              <motion.div key={idx} variants={fadeInUp} className="bg-white p-12 lg:p-16 flex flex-col items-start gap-8 hover:bg-emerald-50/30 transition-colors">
+                <div className="w-16 h-16 bg-emerald-900 text-white rounded-2xl flex items-center justify-center shadow-lg">{feature.icon}</div>
+                <div>
+                  <h3 className="text-2xl font-black mb-4 tracking-tight text-emerald-950 uppercase">{feature.title}</h3>
+                  <p className="text-slate-500 font-semibold leading-relaxed">{feature.description}</p>
+                </div>
+              </motion.div>
+            ))}
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Exclusive Advantages Section */}
+      <section className="py-32 bg-white overflow-hidden">
+        <div className="max-w-7xl mx-auto px-6 lg:px-10">
+          <motion.div variants={fadeInUp} initial="hidden" whileInView="visible" className="text-center mb-20">
+            <h2 className="text-5xl md:text-7xl font-black tracking-tighter text-emerald-950 uppercase hero-title">KELEBIHAN <br/><span className="text-emerald-600">NIB!KOE.</span></h2>
+            <p className="text-slate-400 font-black uppercase tracking-[0.3em] mt-4">Lebih dari sekadar NIB</p>
+          </motion.div>
+
+          <motion.div variants={staggerContainer} initial="hidden" whileInView="visible" className="grid grid-cols-1 md:grid-cols-4 gap-8">
+            {advantages.map((adv, i) => (
+              <motion.div 
+                key={i} 
+                variants={fadeInUp}
+                whileHover={{ y: -10 }}
+                className="bg-emerald-50/50 p-10 rounded-[40px] border border-emerald-100 text-center flex flex-col items-center group transition-all"
+              >
+                <div className="w-16 h-16 bg-white rounded-2xl flex items-center justify-center mb-6 shadow-xl shadow-emerald-900/5 group-hover:bg-emerald-900 transition-colors duration-500">
+                  <div className="group-hover:text-white transition-colors duration-500">
+                    {React.cloneElement(adv.icon, { size: 32 })}
+                  </div>
+                </div>
+                <h4 className="text-xl font-black text-emerald-950 uppercase tracking-tight mb-4">{adv.title}</h4>
+                <p className="text-slate-500 text-sm font-semibold leading-relaxed">{adv.desc}</p>
+              </motion.div>
+            ))}
+          </motion.div>
+        </div>
       </section>
 
       {/* Ease Features */}
@@ -642,7 +738,7 @@ const App = () => {
           </div>
 
           <div className="border-t border-slate-100 pt-12 flex flex-col md:flex-row items-center justify-between gap-8 text-[10px] font-bold text-slate-400 uppercase tracking-[0.3em]">
-            <p>© 2025 NIB!KOE INDONESIA. ALL RIGHTS RESERVED.</p>
+            <p>© 2025 KOE GROUP INDONESIA. ALL RIGHTS RESERVED.</p>
             <div className="flex gap-10">
               <a
                 href="/privacy-police"
