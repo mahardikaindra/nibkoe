@@ -192,7 +192,7 @@ const App = () => {
               className="flex items-center gap-3"
             >
               <div
-                className={`bg-${scrolled ? "white" : "emerald"}-800 p-2.5 rounded-[12px] shadow-lg shadow-${scrolled ? "emerald" : "white"}-900/10`}
+                className={`bg-${scrolled ? "white" : "emerald"}-800 p-2.5 rounded-xl shadow-lg shadow-${scrolled ? "emerald" : "white"}-900/10`}
               >
                 <Image
                   src={scrolled ? "/assets/logo.png" : "/assets/logo-white.png"}
@@ -351,7 +351,7 @@ const App = () => {
         <motion.div
           animate={{ scale: [1, 1.2, 1], opacity: [0.1, 0.2, 0.1] }}
           transition={{ duration: 8, repeat: Infinity }}
-          className="absolute -bottom-24 -right-24 w-[500px] h-[500px] bg-emerald-500 rounded-full blur-[120px] pointer-events-none"
+          className="absolute -bottom-24 -right-24 w-125 h-125 bg-emerald-500 rounded-full blur-[120px] pointer-events-none"
         />
       </section>
 
@@ -630,7 +630,7 @@ const App = () => {
                   </div>
                 </div>
 
-                <ul className="space-y-6 mb-16 flex-grow">
+                <ul className="space-y-6 mb-16 grow">
                   {plan.features.map((f, i) => (
                     <li
                       key={i}
@@ -720,7 +720,7 @@ const App = () => {
                 </span>
               </div>
               <div className="space-y-2">
-                <p className="text-[12px] font-black text-emerald-900 uppercase tracking-[0.1em]">
+                <p className="text-[12px] font-black text-emerald-900 uppercase tracking-widest">
                   Part of PT Koe Group Indonesia
                 </p>
                 <p className="text-[11px] font-bold text-slate-400 uppercase tracking-tight">
@@ -758,7 +758,7 @@ const App = () => {
                   marketing@pajakkoe.co.id
                 </li>
                 <li className="flex items-start gap-4 group cursor-pointer">
-                  <div className="w-10 h-10 bg-emerald-50 rounded-xl flex items-center justify-center text-emerald-700 flex-shrink-0 group-hover:bg-emerald-900 group-hover:text-white transition-all">
+                  <div className="w-10 h-10 bg-emerald-50 rounded-xl flex items-center justify-center text-emerald-700 shrink-0 group-hover:bg-emerald-900 group-hover:text-white transition-all">
                     <MapPin size={18} />
                   </div>
                   <span className="leading-relaxed">
