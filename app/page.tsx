@@ -17,6 +17,10 @@ import {
   Search,
   UserPlus,
   AlertCircle,
+  Layers,
+  ClipboardList,
+  Construction,
+  HelpCircle,
 } from "lucide-react";
 import Image from "next/image";
 import WhatsAppIcon from "../components/ui/WhatsAppIcon";
@@ -87,16 +91,45 @@ const App = () => {
   ];
 
   const ossPainPoints = [
-    "RDTR tidak sesuai atau ditolak sistem otomatis",
-    "Perubahan SK Kemenkumham ditolak/tidak sinkron",
-    "Kode KBLI tidak muncul atau salah klasifikasi risiko",
-    "Status Akun 'Tidak Efektif' berkepanjangan",
-    "Kendala migrasi data dari OSS 1.1 ke OSS RBA",
-    "KKPR (Kesesuaian Tata Ruang) tidak terbit otomatis",
-    "NIK pemilik terblokir atau terdeteksi data ganda",
-    "Sertifikat Standar (SS) menggantung tanpa verifikasi",
-    "Kesulitan integrasi sistem PBG (IMB) & SLF",
-    "Error sistem 'Gateway Timeout' saat input jam sibuk",
+    "Kawasan Belum di RDTR",
+    "PKKPR Ditolak",
+    "KKKPR Ditolak",
+    "Struktur Permodalan Pemegang Saham Ditolak",
+    "Permohonan PB UMKU Ditolak",
+    "Migrasi Data Lama ke OSS RBA",
+    "Yayasan / Koperasi KBLI tidak muncul",
+    "Penambahan / Pencabutan KBLI Non Efektif",
+    "Akun NIB Tertukar dengan Akun Orang Lain",
+    "Pemegang Saham Tidak Terbaca Sistem Saat Pendaftaran",
+  ];
+
+  const nibRequirements = [
+    "KTP Direktur Utama",
+    "Akta Pendirian Perusahaan",
+    "SK AHU (Kemenkumham)",
+    "NPWP Badan Usaha",
+    "NIK Koperasi (Khusus Koperasi)",
+  ];
+
+  const nibProcess = [
+    "Pemeriksaan Kelengkapan Dokumen",
+    "Pemeriksaan RDTR & Kesesuaian Tata Ruang",
+    "Pemeriksaan Kode KBLI",
+    "Pendaftaran dan Verifikasi Akun OSS",
+    "Pembuatan Polygon Lokasi",
+    "Penambahan Lokasi & Kegiatan Usaha",
+    "Penerbitan Penapisan Izin Lingkungan (Amdalnet)",
+    "Penerbitan NIB Resmi",
+    "Pemenuhan Syarat Sertifikat Standar (Bila Ada)",
+  ];
+
+  const additionalServices = [
+    "PKKPR (Persetujuan Kesesuaian Kegiatan Pemanfaatan Ruang)",
+    "Perubahan Data Perusahaan",
+    "Pemulihan Lupa Password / Email / No Telepon",
+    "Pencabutan / Perubahan Izin Usaha",
+    "Laporan LKPM Berkala",
+    "Likuidasi Perusahaan",
   ];
 
   const advantages = [
@@ -124,35 +157,39 @@ const App = () => {
 
   const pricing = [
     {
-      name: "Solusi Personal",
-      price: "199k",
+      name: "UMKM Perorangan",
+      price: "100k",
+      unit: "/ NIB",
       features: [
-        "NIB Perorangan (UMKM)",
-        "Tinggal Kirim Foto KTP",
-        "Bantuan Pilih KBLI",
-        "Selesai dalam 1 Jam",
+        "Maksimal 8 KBLI",
+        "Free Cek RDTR",
+        "Pendaftaran OSS",
+        "SPPL & KKKPR (Bila Terbit)",
       ],
       popular: false,
     },
     {
-      name: "Bisnis Mantap",
-      price: "499k",
+      name: "PT Perorangan + AHU",
+      price: "299k",
+      unit: "/ Paket",
       features: [
-        "NIB & Sertifikat Standar",
-        "Pendampingan Full OSS",
-        "Revisi Data Tanpa Batas",
-        "Laporan Pajak Dasar",
+        "Pengecekan Nama & KBLI",
+        "Penerbitan Sertifikat & SK AHU",
+        "SKT NPWP & NPWP Badan",
+        "Coretax & NIB + OSS",
+        "Polygon Lokasi (Max 5 KBLI)",
       ],
       popular: true,
     },
     {
-      name: "Korporat Eksklusif",
-      price: "1.2m",
+      name: "Badan Usaha (PT/CV)",
+      price: "120k",
+      unit: "/ 8 KBLI",
       features: [
-        "NIB Badan Usaha (PT/CV)",
-        "Izin Lokasi & Lingkungan",
-        "Terima Beres Dokumen Fisik",
-        "Dedicated Consultant",
+        "Berlaku Kelipatan",
+        "+15rb per KBLI selebihnya",
+        "Free Polygon & RDTR",
+        "Pendampingan Full OSS",
       ],
       popular: false,
     },
@@ -363,36 +400,47 @@ const App = () => {
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
-            className="flex flex-col md:flex-row gap-16 items-center"
+            className="flex flex-col md:flex-row gap-20 items-center"
           >
-            <div className="md:w-1/2">
+            <div className="md:w-5/12">
               <h2 className="text-4xl md:text-6xl font-black text-emerald-950 uppercase hero-title mb-8">
-                OSS Itu <br />
-                <span className="text-red-500">RUMIT & MELELAHKAN?</span>
+                10 Masalah OSS <br />
+                <span className="text-red-600">YANG KAMI ATASI.</span>
               </h2>
               <p className="text-slate-500 text-lg font-bold uppercase tracking-widest mb-10">
-                Kami paham rasa frustrasi Anda.
+                Sistem OSS seringkali membingungkan. Biarkan kami yang
+                menghadapi errornya untuk Anda.
               </p>
-              <div className="bg-red-50 border-l-4 border-red-500 p-8 rounded-2xl">
-                <p className="text-red-900 font-bold italic leading-relaxed">{`"Sistem OSS RBA seringkali memberikan error yang tidak intuitif, membuat pelaku usaha terjebak dalam birokrasi digital yang tak berujung."`}</p>
+              <div className="bg-red-50 p-8 rounded-3xl border border-red-100">
+                <div className="flex items-center gap-4 text-red-600 mb-4">
+                  <AlertCircle size={32} />
+                  <span className="font-black uppercase tracking-widest">
+                    OSS Pain Points
+                  </span>
+                </div>
+                <p className="text-red-900 font-bold leading-relaxed">
+                  {
+                    "Kami memiliki keahlian khusus untuk menangani status 'Ditolak' dan kendala sinkronisasi data antar kementerian."
+                  }
+                </p>
               </div>
             </div>
-            <div className="md:w-1/2 grid grid-cols-1 gap-4">
+            <div className="md:w-7/12">
               <motion.div
                 variants={staggerContainer}
                 initial="hidden"
                 whileInView="visible"
                 viewport={{ once: true }}
-                className="space-y-3"
+                className="grid grid-cols-1 gap-3"
               >
                 {ossPainPoints.map((point, i) => (
                   <motion.div
                     key={i}
                     variants={fadeInUp}
-                    className="flex items-center gap-4 bg-slate-50 p-4 rounded-xl border border-slate-100 hover:border-red-200 transition-all group"
+                    className="flex items-center gap-4 bg-slate-50 p-5 rounded-2xl border border-slate-100 hover:bg-white hover:border-red-200 transition-all group cursor-default"
                   >
-                    <div className="w-8 h-8 rounded-lg bg-red-100 flex items-center justify-center text-red-600 group-hover:bg-red-600 group-hover:text-white transition-colors">
-                      <AlertCircle size={18} />
+                    <div className="flex-shrink-0 w-8 h-8 rounded-lg bg-emerald-100 flex items-center justify-center text-emerald-800 group-hover:bg-red-600 group-hover:text-white transition-colors font-black text-xs">
+                      {i + 1}
                     </div>
                     <span className="text-sm font-bold text-slate-700 uppercase tracking-tight">
                       {point}
@@ -405,36 +453,82 @@ const App = () => {
         </div>
       </section>
 
-      {/* Ease Features Section */}
-      <section id="kenapa-kami" className="py-32 bg-slate-50">
-        <div className="max-w-7xl mx-auto px-6 lg:px-10">
-          <motion.div
-            variants={staggerContainer}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: "-100px" }}
-            className="grid md:grid-cols-3 gap-1 shadow-2xl shadow-slate-200/50 rounded-[50px] overflow-hidden bg-slate-100 border border-slate-100"
-          >
-            {features.map((feature, idx) => (
-              <motion.div
-                key={idx}
-                variants={fadeInUp}
-                className="bg-white p-12 lg:p-16 flex flex-col items-start gap-8 hover:bg-emerald-50/30 transition-colors"
-              >
-                <div className="w-16 h-16 bg-emerald-900 text-white rounded-2xl flex items-center justify-center shadow-lg">
-                  {feature.icon}
+      {/* Process & Requirements Section */}
+      <section
+        id="proses"
+        className="py-32 bg-emerald-950 text-white overflow-hidden relative"
+      >
+        <div className="max-w-7xl mx-auto px-6 lg:px-10 relative z-10">
+          <div className="grid lg:grid-cols-2 gap-24">
+            {/* Process */}
+            <motion.div
+              variants={fadeInUp}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+            >
+              <div className="flex items-center gap-4 mb-10">
+                <div className="bg-emerald-500 p-3 rounded-2xl">
+                  <ClipboardList className="text-white w-8 h-8" />
                 </div>
-                <div>
-                  <h3 className="text-2xl font-black mb-4 tracking-tight text-emerald-950 uppercase">
-                    {feature.title}
-                  </h3>
-                  <p className="text-slate-500 font-semibold leading-relaxed">
-                    {feature.description}
-                  </p>
+                <h2 className="text-4xl font-black uppercase tracking-tighter">
+                  Proses NIB Anda.
+                </h2>
+              </div>
+              <div className="space-y-6 border-l-2 border-emerald-800 ml-6 pl-10 relative">
+                {nibProcess.map((step, i) => (
+                  <div key={i} className="relative group">
+                    <div className="absolute -left-[51px] top-1 w-5 h-5 bg-emerald-950 border-2 border-emerald-500 rounded-full group-hover:bg-emerald-500 transition-colors" />
+                    <p className="text-lg font-bold text-emerald-100/70 group-hover:text-white transition-colors uppercase tracking-tight">
+                      {step}
+                    </p>
+                  </div>
+                ))}
+              </div>
+            </motion.div>
+
+            {/* Requirements */}
+            <motion.div
+              variants={fadeInUp}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+            >
+              <div className="bg-emerald-900/50 p-12 rounded-[40px] border border-white/10 h-full">
+                <div className="flex items-center gap-4 mb-10">
+                  <div className="bg-white p-3 rounded-2xl">
+                    <Layers className="text-emerald-900 w-8 h-8" />
+                  </div>
+                  <h2 className="text-4xl font-black uppercase tracking-tighter">
+                    Syarat Berkas.
+                  </h2>
                 </div>
-              </motion.div>
-            ))}
-          </motion.div>
+                <div className="space-y-8">
+                  {nibRequirements.map((req, i) => (
+                    <div key={i} className="flex items-center gap-6 group">
+                      <div className="w-12 h-12 bg-white/5 rounded-2xl flex items-center justify-center font-black text-emerald-400 group-hover:bg-emerald-400 group-hover:text-emerald-950 transition-all">
+                        {i + 1}
+                      </div>
+                      <span className="text-xl font-black uppercase tracking-widest">
+                        {req}
+                      </span>
+                    </div>
+                  ))}
+                  <div className="mt-12 p-8 bg-emerald-800 rounded-3xl border border-white/5">
+                    <h5 className="font-black text-emerald-400 mb-2 uppercase tracking-widest">
+                      Dapatkan Free:
+                    </h5>
+                    <ul className="grid grid-cols-2 gap-4 text-xs font-bold text-emerald-100/50 uppercase">
+                      <li>• Pendaftaran OSS</li>
+                      <li>• SPPL</li>
+                      <li>• KKKPR (Bila Terbit)</li>
+                      <li>• Email Bisnis</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </motion.div>
+          </div>
         </div>
       </section>
 
@@ -480,39 +574,6 @@ const App = () => {
                 <p className="text-slate-500 text-sm font-semibold leading-relaxed">
                   {adv.desc}
                 </p>
-              </motion.div>
-            ))}
-          </motion.div>
-        </div>
-      </section>
-
-      {/* Ease Features */}
-      <section id="kenapa-kami" className="py-32 bg-white">
-        <div className="max-w-7xl mx-auto px-6 lg:px-10">
-          <motion.div
-            variants={staggerContainer}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: "-100px" }}
-            className="grid md:grid-cols-3 gap-1 shadow-2xl shadow-slate-200/50 rounded-[50px] overflow-hidden bg-slate-100 border border-slate-100"
-          >
-            {features.map((feature, idx) => (
-              <motion.div
-                key={idx}
-                variants={fadeInUp}
-                className="bg-white p-12 lg:p-16 flex flex-col items-start gap-8 hover:bg-emerald-50/30 transition-colors"
-              >
-                <div className="w-16 h-16 bg-emerald-900 text-white rounded-2xl flex items-center justify-center shadow-lg">
-                  {feature.icon}
-                </div>
-                <div>
-                  <h3 className="text-2xl font-black mb-4 tracking-tight text-emerald-950 uppercase">
-                    {feature.title}
-                  </h3>
-                  <p className="text-slate-500 font-semibold leading-relaxed">
-                    {feature.description}
-                  </p>
-                </div>
               </motion.div>
             ))}
           </motion.div>
@@ -582,38 +643,42 @@ const App = () => {
       </section>
 
       {/* Pricing */}
-      <section id="harga" className="py-32 bg-white">
+      <section id="harga" className="py-32 bg-slate-50">
         <div className="max-w-7xl mx-auto px-6 lg:px-10">
-          <motion.div
-            variants={fadeInUp}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            className="flex flex-col lg:flex-row justify-between items-end mb-20 gap-8"
-          >
+          <div className="flex flex-col lg:flex-row justify-between items-end mb-20 gap-8">
             <div className="max-w-xl">
-              <h2 className="text-5xl md:text-7xl font-black tracking-tighter text-emerald-950 uppercase leading-none">
-                HARGA <br />
-                JUJUR.
+              <h2 className="text-5xl md:text-7xl font-black tracking-tighter text-emerald-950 uppercase leading-none italic">
+                PRICELIST <br />
+                NIB!KOE.
               </h2>
             </div>
-            <p className="text-slate-400 font-bold uppercase tracking-widest text-sm text-right">
-              Tanpa biaya siluman, tanpa ribet.
-            </p>
-          </motion.div>
+            <div className="text-right">
+              <p className="text-slate-400 font-bold uppercase tracking-widest text-sm mb-2">
+                Transparan & Terjangkau
+              </p>
+              <div className="flex gap-4">
+                <span className="bg-emerald-100 text-emerald-800 px-4 py-1 rounded-full text-[10px] font-black uppercase tracking-widest">
+                  Polygon Free*
+                </span>
+                <span className="bg-emerald-100 text-emerald-800 px-4 py-1 rounded-full text-[10px] font-black uppercase tracking-widest">
+                  RDTR Free*
+                </span>
+              </div>
+            </div>
+          </div>
 
+          {/* Main Packages */}
           <motion.div
             variants={staggerContainer}
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: true }}
-            className="grid md:grid-cols-3 gap-px bg-slate-200 rounded-[50px] overflow-hidden border border-slate-200"
+            className="grid md:grid-cols-3 gap-px bg-slate-200 rounded-[50px] overflow-hidden border border-slate-200 mb-20 shadow-2xl"
           >
             {pricing.map((plan, idx) => (
               <motion.div
                 key={idx}
                 variants={fadeInUp}
-                whileHover={{ backgroundColor: "#fcfdfd" }}
+                whileHover={{ backgroundColor: "#ffffff" }}
                 className="bg-white p-12 lg:p-16 flex flex-col h-full group"
               >
                 <div className="mb-12">
@@ -621,38 +686,123 @@ const App = () => {
                     {plan.name}
                   </h3>
                   <div className="flex items-baseline gap-2">
-                    <span className="text-slate-400 text-xl font-black">
+                    <span className="text-slate-300 text-xl font-black">
                       IDR
                     </span>
                     <div className="text-7xl font-black text-emerald-950 tracking-tighter">
                       {plan.price}
                     </div>
+                    <span className="text-slate-400 font-bold text-xs uppercase tracking-widest">
+                      {plan.unit}
+                    </span>
                   </div>
                 </div>
-
-                <ul className="space-y-6 mb-16 grow">
+                <ul className="space-y-6 mb-16 flex-grow">
                   {plan.features.map((f, i) => (
                     <li
                       key={i}
-                      className="flex items-center gap-4 text-sm font-bold text-slate-600"
+                      className="flex items-center gap-4 text-sm font-bold text-slate-600 italic"
                     >
                       <div className="w-2 h-2 bg-emerald-500 rounded-full" />
                       {f}
                     </li>
                   ))}
                 </ul>
-
                 <motion.button
                   variants={interactionVariants}
                   whileHover="hover"
                   whileTap="tap"
                   className={`w-full py-6 rounded-[25px] font-black uppercase tracking-widest text-xs transition-all ${plan.popular ? "bg-emerald-900 text-white shadow-2xl shadow-emerald-900/30" : "bg-slate-100 text-slate-900 hover:bg-slate-900 hover:text-white"}`}
                 >
-                  Pilih Paket
+                  Urus Paket Ini
                 </motion.button>
               </motion.div>
             ))}
           </motion.div>
+
+          {/* Additional Services List */}
+          <div className="grid md:grid-cols-2 gap-12">
+            <motion.div
+              variants={fadeInUp}
+              initial="hidden"
+              whileInView="visible"
+              className="bg-emerald-950 p-12 rounded-[40px] text-white"
+            >
+              <div className="flex items-center gap-4 mb-10">
+                <div className="bg-emerald-500 p-3 rounded-2xl">
+                  <Construction className="text-white w-8 h-8" />
+                </div>
+                <h3 className="text-3xl font-black uppercase tracking-tight">
+                  Layanan Tambahan.
+                </h3>
+              </div>
+              <p className="text-emerald-100/50 font-bold uppercase tracking-widest text-xs mb-8">
+                Harga Spesial - Hubungi CS Kami
+              </p>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                {additionalServices.map((service, i) => (
+                  <div key={i} className="flex items-center gap-3 group">
+                    <div className="w-2 h-2 bg-emerald-500 rounded-full" />
+                    <span className="text-xs font-bold text-emerald-100/70 group-hover:text-white transition-colors uppercase tracking-tight">
+                      {service}
+                    </span>
+                  </div>
+                ))}
+              </div>
+            </motion.div>
+
+            <motion.div
+              variants={fadeInUp}
+              initial="hidden"
+              whileInView="visible"
+              className="bg-white p-12 rounded-[40px] border border-slate-200 shadow-xl"
+            >
+              <div className="flex items-center gap-4 mb-10">
+                <div className="bg-slate-100 p-3 rounded-2xl">
+                  <HelpCircle className="text-emerald-900 w-8 h-8" />
+                </div>
+                <h3 className="text-3xl font-black uppercase tracking-tight text-emerald-950">
+                  Info Biaya Satuan.
+                </h3>
+              </div>
+              <ul className="space-y-6">
+                <li className="flex justify-between items-center border-b border-slate-100 pb-4">
+                  <span className="text-sm font-bold uppercase text-slate-500">
+                    NIB Perkumpulan / Bumdes
+                  </span>
+                  <span className="text-xl font-black text-emerald-950">
+                    99k{" "}
+                    <span className="text-[10px] text-slate-300">/ NIB</span>
+                  </span>
+                </li>
+                <li className="flex justify-between items-center border-b border-slate-100 pb-4">
+                  <span className="text-sm font-bold uppercase text-slate-500">
+                    Hanya Cek RDTR
+                  </span>
+                  <span className="text-xl font-black text-emerald-950">
+                    35k{" "}
+                    <span className="text-[10px] text-slate-300">/ Cek</span>
+                  </span>
+                </li>
+                <li className="flex justify-between items-center border-b border-slate-100 pb-4">
+                  <span className="text-sm font-bold uppercase text-slate-500">
+                    Hanya Pembuatan Polygon
+                  </span>
+                  <span className="text-xl font-black text-emerald-950">
+                    20k{" "}
+                    <span className="text-[10px] text-slate-300">/ Titik</span>
+                  </span>
+                </li>
+              </ul>
+              <div className="mt-8 p-6 bg-emerald-50 rounded-2xl text-center italic">
+                <p className="text-emerald-800 font-bold text-sm uppercase tracking-tight">
+                  {
+                    '"RDTR & Polygon GRATIS jika pengurusan NIB dipercayakan kepada NIB!Koe"'
+                  }
+                </p>
+              </div>
+            </motion.div>
+          </div>
         </div>
       </section>
 
