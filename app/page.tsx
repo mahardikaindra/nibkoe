@@ -255,7 +255,7 @@ const App = () => {
               animate="visible"
               className="hidden md:flex items-center gap-12"
             >
-              {["Kenapa Kami", "Alur", "Harga"].map((item) => (
+              {["Masalah OSS", "Alur", "Harga"].map((item) => (
                 <a
                   key={item}
                   href={`#${item.toLowerCase().replace(" ", "-")}`}
@@ -393,7 +393,7 @@ const App = () => {
       </section>
 
       {/* OSS Pain Points Section */}
-      <section id="masalah" className="py-32 bg-white">
+      <section id="masalah-oss" className="py-32 bg-white">
         <div className="max-w-7xl mx-auto px-6 lg:px-10">
           <motion.div
             variants={fadeInUp}
@@ -455,7 +455,7 @@ const App = () => {
 
       {/* Process & Requirements Section */}
       <section
-        id="proses"
+        id="alur"
         className="py-32 bg-emerald-950 text-white overflow-hidden relative"
       >
         <div className="max-w-7xl mx-auto px-6 lg:px-10 relative z-10">
@@ -581,7 +581,7 @@ const App = () => {
       </section>
 
       {/* Simple Process */}
-      <section
+      {/* <section
         id="alur"
         className="py-32 bg-emerald-950 text-white overflow-hidden relative"
       >
@@ -640,7 +640,7 @@ const App = () => {
             ))}
           </motion.div>
         </div>
-      </section>
+      </section> */}
 
       {/* Pricing */}
       <section id="harga" className="py-32 bg-slate-50">
@@ -712,6 +712,7 @@ const App = () => {
                   variants={interactionVariants}
                   whileHover="hover"
                   whileTap="tap"
+                  onClick={() => handlePesanWA("Tanya-tanya")}
                   className={`w-full py-6 rounded-[25px] font-black uppercase tracking-widest text-xs transition-all ${plan.popular ? "bg-emerald-900 text-white shadow-2xl shadow-emerald-900/30" : "bg-slate-100 text-slate-900 hover:bg-slate-900 hover:text-white"}`}
                 >
                   Urus Paket Ini
