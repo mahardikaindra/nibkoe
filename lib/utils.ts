@@ -18,7 +18,7 @@ const safeJsonParse = <T>(jsonString: string, defaultValue: T): T => {
 };
 
 const handlePesanWA = (paket: string) => {
-  const nomorWA = "6285797946263";
+  const nomorWA = "628981213490";
   let pesan = "";
 
   if (paket === "Tanya-tanya" || paket === "Umum") {

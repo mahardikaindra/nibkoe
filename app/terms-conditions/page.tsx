@@ -42,7 +42,7 @@ const TermCondition = () => {
 
           <p>
             Selamat datang di NIB!Koe, sebuah layanan yang dioperasikan oleh PT
-            Koe Group Indonesia (&quot;Kami&quot;). Harap membaca Syarat dan
+            Koe Legali Indonesia (&quot;Kami&quot;). Harap membaca Syarat dan
             Ketentuan ini dengan saksama sebelum menggunakan layanan Kami.
             Dengan mengakses atau menggunakan layanan Kami (melalui website,
             WhatsApp, atau formulir pemesanan), Anda (&quot;Pengguna&quot; atau
@@ -84,11 +84,11 @@ const TermCondition = () => {
               identitas, pencucian uang, atau tindakan melanggar hukum lainnya.
             </p>
             <p>
-              <strong>2.3.</strong> Tanggung Jawab Hukum: PT Koe Group Indonesia
-              tidak bertanggung jawab atas segala konsekuensi hukum yang timbul
-              akibat ketidakbenaran data yang diberikan oleh Pengguna. Segala
-              sanksi perpajakan di kemudian hari akibat kelalaian pelaporan
-              pajak adalah tanggung jawab penuh Pengguna.
+              <strong>2.3.</strong> Tanggung Jawab Hukum: PT Koe Legali
+              Indonesia tidak bertanggung jawab atas segala konsekuensi hukum
+              yang timbul akibat ketidakbenaran data yang diberikan oleh
+              Pengguna. Segala sanksi perpajakan di kemudian hari akibat
+              kelalaian pelaporan pajak adalah tanggung jawab penuh Pengguna.
             </p>
           </section>
 
@@ -170,8 +170,8 @@ const TermCondition = () => {
               silakan hubungi kami melalui:
             </p>
             <ul className="list-disc list-inside space-y-1 mt-2">
-              <li>WhatsApp: 0857-9794-6263</li>
-              <li>Email: marketing@pajakkoe.co.id</li>
+              <li>WhatsApp: 0898-1213-490</li>
+              <li>Email: info@koegroupindonesia.id</li>
               <li>
                 Alamat Kantor: HQuarters Lantai 20 Jl Asia Afrika No 158, Kota
                 Bandung
