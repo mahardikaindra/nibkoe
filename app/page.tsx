@@ -147,54 +147,64 @@ const App = () => {
   const ossPainPoints = [
     {
       title: "Kawasan Belum di RDTR",
-      summary: "Lokasi usaha belum memiliki Rencana Detail Tata Ruang digital. Kami membantu proses verifikasi manual ke dinas terkait.",
-      link: "#article-rdtr"
+      summary:
+        "Lokasi usaha belum memiliki Rencana Detail Tata Ruang digital. Kami membantu proses verifikasi manual ke dinas terkait.",
+      link: "#article-rdtr",
     },
     {
       title: "PKKPR Ditolak",
-      summary: "Persetujuan Kesesuaian Kegiatan Pemanfaatan Ruang sering ditolak karena koordinat tidak akurat. Tim kami ahli dalam penarikan polygon presisi.",
-      link: "#article-pkkpr"
+      summary:
+        "Persetujuan Kesesuaian Kegiatan Pemanfaatan Ruang sering ditolak karena koordinat tidak akurat. Tim kami ahli dalam penarikan polygon presisi.",
+      link: "#article-pkkpr",
     },
     {
       title: "KKKPR Ditolak",
-      summary: "Konfirmasi tata ruang otomatis gagal? Kami melakukan audit berkas untuk memastikan kepatuhan terhadap rencana tata ruang wilayah.",
-      link: "#article-kkkpr"
+      summary:
+        "Konfirmasi tata ruang otomatis gagal? Kami melakukan audit berkas untuk memastikan kepatuhan terhadap rencana tata ruang wilayah.",
+      link: "#article-kkkpr",
     },
     {
       title: "Struktur Permodalan Ditolak",
-      summary: "Ketidaksesuaian antara data Akta, AHU, dan input modal di OSS. Kami bantu sinkronisasi data agar perizinan berlanjut.",
-      link: "#article-modal"
+      summary:
+        "Ketidaksesuaian antara data Akta, AHU, dan input modal di OSS. Kami bantu sinkronisasi data agar perizinan berlanjut.",
+      link: "#article-modal",
     },
     {
       title: "Permohonan PB UMKU Ditolak",
-      summary: "Izin operasional/komersial memerlukan pemenuhan komitmen teknis. Kami bantu menyusun dokumen pendukung yang dibutuhkan.",
-      link: "#article-umku"
+      summary:
+        "Izin operasional/komersial memerlukan pemenuhan komitmen teknis. Kami bantu menyusun dokumen pendukung yang dibutuhkan.",
+      link: "#article-umku",
     },
     {
       title: "Migrasi Data Lama ke OSS RBA",
-      summary: "Data NIB lama seringkali tidak terbaca di sistem baru. Kami melakukan pembersihan dan validasi ulang data perusahaan Anda.",
-      link: "#article-migrasi"
+      summary:
+        "Data NIB lama seringkali tidak terbaca di sistem baru. Kami melakukan pembersihan dan validasi ulang data perusahaan Anda.",
+      link: "#article-migrasi",
     },
     {
       title: "Yayasan / Koperasi KBLI Tidak Muncul",
-      summary: "Keterbatasan sistem untuk entitas non-PT. Kami memiliki prosedur khusus untuk mendaftarkan bidang usaha yayasan/koperasi.",
-      link: "#article-entitas"
+      summary:
+        "Keterbatasan sistem untuk entitas non-PT. Kami memiliki prosedur khusus untuk mendaftarkan bidang usaha yayasan/koperasi.",
+      link: "#article-entitas",
     },
     {
       title: "Penambahan / Pencabutan KBLI Non Efektif",
-      summary: "KBLI yang menggantung merusak reputasi akun. Kami bantu pembersihan akun agar status perizinan kembali hijau.",
-      link: "#article-kbli"
+      summary:
+        "KBLI yang menggantung merusak reputasi akun. Kami bantu pembersihan akun agar status perizinan kembali hijau.",
+      link: "#article-kbli",
     },
     {
       title: "Akun NIB Tertukar",
-      summary: "Kasus data NIK yang terdaftar di akun orang lain. Kami bantu proses klaim kepemilikan dan reset data di pusat.",
-      link: "#article-akun"
+      summary:
+        "Kasus data NIK yang terdaftar di akun orang lain. Kami bantu proses klaim kepemilikan dan reset data di pusat.",
+      link: "#article-akun",
     },
     {
       title: "Pemegang Saham Tidak Terbaca",
-      summary: "Masalah sinkronisasi data AHU ke sistem OSS. Kami bantu percepatan update database antar instansi pemerintah.",
-      link: "#article-ahu"
-    }
+      summary:
+        "Masalah sinkronisasi data AHU ke sistem OSS. Kami bantu percepatan update database antar instansi pemerintah.",
+      link: "#article-ahu",
+    },
   ];
 
   const advantages = [
@@ -498,53 +508,72 @@ const App = () => {
               </div>
 
               <div className="lg:w-7/12">
-                <motion.div variants={staggerContainer} initial="hidden" whileInView="visible" viewport={{ once: true }} className="grid grid-cols-1 gap-3">
-                {ossPainPoints.map((point, i) => (
-                  <motion.div 
-                    key={i} 
-                    variants={fadeInUp} 
-                    className={`rounded-2xl border transition-all overflow-hidden ${activeProblem === i ? 'bg-white border-[#9b1f15] shadow-lg' : 'bg-slate-50 border-slate-100 hover:border-slate-200'}`}
-                  >
-                    <button
-                      onClick={() => setActiveProblem(activeProblem === i ? null : i)}
-                      className="w-full flex items-center justify-between gap-3 p-4 md:p-5 text-left group"
+                <motion.div
+                  variants={staggerContainer}
+                  initial="hidden"
+                  whileInView="visible"
+                  viewport={{ once: true }}
+                  className="grid grid-cols-1 gap-3"
+                >
+                  {ossPainPoints.map((point, i) => (
+                    <motion.div
+                      key={i}
+                      variants={fadeInUp}
+                      className={`rounded-2xl border transition-all overflow-hidden ${activeProblem === i ? "bg-white border-[#9b1f15] shadow-lg" : "bg-slate-50 border-slate-100 hover:border-slate-200"}`}
                     >
-                      <div className="flex items-center gap-4">
-                        <div className={`shrink-0 w-8 h-8 rounded-lg flex items-center justify-center font-black text-[10px] transition-colors ${activeProblem === i ? 'bg-[#9b1f15] text-white' : 'bg-red-100 text-[#9b1f15]'}`}>
-                          {i + 1}
-                        </div>
-                        <span className={`text-[11px] md:text-[13px] font-black uppercase tracking-tight transition-colors ${activeProblem === i ? 'text-[#9b1f15]' : 'text-slate-700'}`}>
-                          {point.title}
-                        </span>
-                      </div>
-                      <ChevronDown size={18} className={`text-slate-400 transition-transform duration-300 ${activeProblem === i ? 'rotate-180 text-[#9b1f15]' : ''}`} />
-                    </button>
-                    
-                    <AnimatePresence>
-                      {activeProblem === i && (
-                        <motion.div
-                          initial={{ height: 0, opacity: 0 }}
-                          animate={{ height: 'auto', opacity: 1 }}
-                          exit={{ height: 0, opacity: 0 }}
-                          transition={{ duration: 0.3 }}
-                        >
-                          <div className="px-5 pb-5 ml-11">
-                            <p className="text-[12px] md:text-[14px] text-slate-500 font-medium leading-relaxed mb-4 border-l-2 border-emerald-500 pl-4">
-                              {point.summary}
-                            </p>
-                            <a 
-                              href={point.link}
-                              className="inline-flex items-center gap-2 text-[10px] font-black text-emerald-600 uppercase tracking-widest hover:text-[#9b1f15] transition-colors group/link"
-                            >
-                              Baca Artikel Lengkap <ArrowRight size={14} className="group-hover/link:translate-x-1 transition-transform" />
-                            </a>
+                      <button
+                        onClick={() =>
+                          setActiveProblem(activeProblem === i ? null : i)
+                        }
+                        className="w-full flex items-center justify-between gap-3 p-4 md:p-5 text-left group"
+                      >
+                        <div className="flex items-center gap-4">
+                          <div
+                            className={`shrink-0 w-8 h-8 rounded-lg flex items-center justify-center font-black text-[10px] transition-colors ${activeProblem === i ? "bg-[#9b1f15] text-white" : "bg-red-100 text-[#9b1f15]"}`}
+                          >
+                            {i + 1}
                           </div>
-                        </motion.div>
-                      )}
-                    </AnimatePresence>
-                  </motion.div>
-                ))}
-              </motion.div>
+                          <span
+                            className={`text-[11px] md:text-[13px] font-black uppercase tracking-tight transition-colors ${activeProblem === i ? "text-[#9b1f15]" : "text-slate-700"}`}
+                          >
+                            {point.title}
+                          </span>
+                        </div>
+                        <ChevronDown
+                          size={18}
+                          className={`text-slate-400 transition-transform duration-300 ${activeProblem === i ? "rotate-180 text-[#9b1f15]" : ""}`}
+                        />
+                      </button>
+
+                      <AnimatePresence>
+                        {activeProblem === i && (
+                          <motion.div
+                            initial={{ height: 0, opacity: 0 }}
+                            animate={{ height: "auto", opacity: 1 }}
+                            exit={{ height: 0, opacity: 0 }}
+                            transition={{ duration: 0.3 }}
+                          >
+                            <div className="px-5 pb-5 ml-11">
+                              <p className="text-[12px] md:text-[14px] text-slate-500 font-medium leading-relaxed mb-4 border-l-2 border-emerald-500 pl-4">
+                                {point.summary}
+                              </p>
+                              <a
+                                href={point.link}
+                                className="inline-flex items-center gap-2 text-[10px] font-black text-emerald-600 uppercase tracking-widest hover:text-[#9b1f15] transition-colors group/link"
+                              >
+                                Baca Artikel Lengkap{" "}
+                                <ArrowRight
+                                  size={14}
+                                  className="group-hover/link:translate-x-1 transition-transform"
+                                />
+                              </a>
+                            </div>
+                          </motion.div>
+                        )}
+                      </AnimatePresence>
+                    </motion.div>
+                  ))}
+                </motion.div>
               </div>
             </motion.div>
           </div>
