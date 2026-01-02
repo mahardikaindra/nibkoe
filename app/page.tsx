@@ -79,7 +79,7 @@ const App = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [currentSlide, setCurrentSlide] = useState(0);
-  const [activeProblem, setActiveProblem] = useState(null);
+  const [activeProblem, setActiveProblem] = useState(0);
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 50);
@@ -523,7 +523,7 @@ const App = () => {
                     >
                       <button
                         onClick={() =>
-                          setActiveProblem(activeProblem === i ? null : i)
+                          setActiveProblem(activeProblem === i ? 0 : i)
                         }
                         className="w-full flex items-center justify-between gap-3 p-4 md:p-5 text-left group"
                       >
