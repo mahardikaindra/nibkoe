@@ -79,7 +79,7 @@ const App = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [currentSlide, setCurrentSlide] = useState(0);
-  const [activeProblem, setActiveProblem] = useState(0);
+  const [activeProblem, setActiveProblem] = useState(null);
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 50);
@@ -119,7 +119,7 @@ const App = () => {
     {
       id: 3,
       title: "SINERGI KEMITRAAN",
-      desc: "Dapatkan keuntungan eksklusif dan harga khusus bagi Notaris & PPAT yang bergabung sebagai mitra strategis.",
+      desc: "Dapatkan keuntungan eksklusif dan harga khusus bagi Notaris yang bergabung sebagai mitra strategis.",
       cta: "Daftar Mitra",
       action: () => handlePesanWA("Pendaftaran Mitra Notaris dari Carousel"),
       icon: <Handshake size={32} />,
@@ -227,7 +227,7 @@ const App = () => {
       icon: <Zap className="text-[#ffcd0c]" />,
     },
     {
-      title: "Sistem Bagi Hasil",
+      title: "Harga Khusus Notaris",
       desc: "Harga khusus yang kompetitif memungkinkan Anda memiliki margin keuntungan lebih besar.",
       icon: <Handshake className="text-[#ffcd0c]" />,
     },
@@ -449,14 +449,14 @@ const App = () => {
           id="masalah"
           className="relative pt-32 pb-20 lg:pt-56 lg:pb-32 bg-white overflow-hidden"
         >
-          <div className="absolute top-0 left-0 w-full h-full opacity-[0.03] pointer-events-none select-none overflow-hidden">
+          {/* <div className="absolute top-0 left-0 w-full h-full opacity-[0.03] pointer-events-none select-none overflow-hidden">
             <div className="text-[20vw] font-black text-black leading-none absolute -top-10 -left-10 rotate-12">
               TOLAK
             </div>
             <div className="text-[15vw] font-black text-black leading-none absolute bottom-0 right-0 -rotate-12">
               DITOLAK
             </div>
-          </div>
+          </div> */}
 
           <div className="max-w-7xl mx-auto px-6 lg:px-10 relative z-10">
             <motion.div
@@ -506,7 +506,7 @@ const App = () => {
                     className={`rounded-2xl border transition-all overflow-hidden ${activeProblem === i ? 'bg-white border-[#9b1f15] shadow-lg' : 'bg-slate-50 border-slate-100 hover:border-slate-200'}`}
                   >
                     <button
-                      onClick={() => setActiveProblem(activeProblem === i ? 0 : i)}
+                      onClick={() => setActiveProblem(activeProblem === i ? null : i)}
                       className="w-full flex items-center justify-between gap-3 p-4 md:p-5 text-left group"
                     >
                       <div className="flex items-center gap-4">
@@ -528,7 +528,7 @@ const App = () => {
                           exit={{ height: 0, opacity: 0 }}
                           transition={{ duration: 0.3 }}
                         >
-                          <div className="px-5 pb-5 ml-[44px]">
+                          <div className="px-5 pb-5 ml-11">
                             <p className="text-[12px] md:text-[14px] text-slate-500 font-medium leading-relaxed mb-4 border-l-2 border-emerald-500 pl-4">
                               {point.summary}
                             </p>
@@ -618,7 +618,7 @@ const App = () => {
                 onClick={() => handlePesanWA("Kemitraan Notaris")}
                 className="w-full sm:w-auto bg-[#ffcd0c]/10 border-2 border-[#ffcd0c] text-[#9b1f15] px-10 py-5 rounded-[20px] font-black uppercase tracking-widest flex items-center justify-center gap-3 shadow-lg text-sm md:text-base"
               >
-                <UserPlus size={20} /> Mitra Notaris & PPAT
+                <UserPlus size={20} /> Jadi Mitra Notaris
               </motion.button>
             </div>
           </div>
@@ -626,12 +626,12 @@ const App = () => {
           <motion.div
             animate={{ scale: [1, 1.2, 1], opacity: [0.1, 0.2, 0.1] }}
             transition={{ duration: 8, repeat: Infinity }}
-            className="absolute -bottom-24 -right-24 w-[600px] h-[600px] bg-[#9b1f15] rounded-full blur-[120px] pointer-events-none"
+            className="absolute -bottom-24 -right-24 w-150 h-150 bg-[#9b1f15] rounded-full blur-[120px] pointer-events-none"
           />
           <motion.div
             animate={{ scale: [1, 1.1, 1], opacity: [0.05, 0.1, 0.05] }}
             transition={{ duration: 6, repeat: Infinity }}
-            className="absolute -top-24 -left-24 w-[500px] h-[500px] bg-[#ffcd0c] rounded-full blur-[100px] pointer-events-none"
+            className="absolute -top-24 -left-24 w-125 h-125 bg-[#ffcd0c] rounded-full blur-[100px] pointer-events-none"
           />
         </section>
 
@@ -678,13 +678,13 @@ const App = () => {
               className="text-center mb-16"
             >
               <h2 className="text-4xl md:text-7xl font-black tracking-tighter text-[#9b1f15] uppercase hero-title leading-none">
-                KEUNGGULAN <br />
-                <span className="text-[#ffcd0c] stroke-text-yellow">
-                  JADI MITRA.
+                MANFAAT NOTARIS <br />
+                <span className="text-white stroke-text-white bg-[#9b1f15]">
+                  JADI MITRA NIB!KOE
                 </span>
               </h2>
               <p className="text-slate-400 font-black uppercase tracking-[0.3em] mt-4 text-[10px] md:text-xs">
-                Solusi Sinergis bagi Notaris & PPAT
+                Solusi Sinergis bagi Notaris
               </p>
             </motion.div>
 
@@ -745,13 +745,13 @@ const App = () => {
                       whileHover={{ x: 5 }}
                       className="flex items-center gap-4 group"
                     >
-                      <div className="flex-shrink-0 w-8 h-8 rounded-full border border-[#ffcd0c]/30 flex items-center justify-center font-black text-[10px] group-hover:bg-[#ffcd0c] group-hover:text-[#9b1f15] transition-all">
+                      <div className="shrink-0 w-8 h-8 rounded-full border border-[#ffcd0c]/30 flex items-center justify-center font-black text-[10px] group-hover:bg-[#ffcd0c] group-hover:text-[#9b1f15] transition-all">
                         {i + 1}
                       </div>
                       <p className="text-[11px] md:text-[13px] font-black uppercase tracking-widest text-white/60 group-hover:text-white transition-colors">
                         {step}
                       </p>
-                      <div className="flex-grow border-t border-dashed border-white/10 hidden md:block" />
+                      <div className="grow border-t border-dashed border-white/10 hidden md:block" />
                     </motion.div>
                   ))}
                 </div>
@@ -786,7 +786,7 @@ const App = () => {
                         <div className="w-12 h-12 bg-[#ffcd0c] rounded-2xl flex items-center justify-center text-[#9b1f15] shadow-lg group-hover:rotate-6 transition-transform">
                           {req.icon}
                         </div>
-                        <span className="text-[9px] md:text-[10px] font-black uppercase tracking-[0.1em] text-white group-hover:text-[#ffcd0c] transition-colors">
+                        <span className="text-[9px] md:text-[10px] font-black uppercase tracking-widest text-white group-hover:text-[#ffcd0c] transition-colors">
                           {req.label}
                         </span>
                       </motion.div>
