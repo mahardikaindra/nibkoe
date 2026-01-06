@@ -102,7 +102,7 @@ const App = () => {
       action: () => handlePesanWA("Konsultasi Cepat via Carousel"),
       icon: <MessageCircle size={32} />,
       image:
-        "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=800",
+        "https://firebasestorage.googleapis.com/v0/b/pajak-koe.firebasestorage.app/o/banner%2FBanner%20Web%201.png?alt=media&token=eb530788-a7e5-4fb8-a066-6f389d2feca7",
       color: "#9b1f15",
     },
     {
@@ -124,7 +124,7 @@ const App = () => {
       action: () => handlePesanWA("Pendaftaran Mitra Notaris dari Carousel"),
       icon: <Handshake size={32} />,
       image:
-        "https://images.unsplash.com/photo-1600880212319-7834e9103b39?auto=format&fit=crop&q=80&w=800",
+        "https://firebasestorage.googleapis.com/v0/b/pajak-koe.firebasestorage.app/o/banner%2FBanner%20Web%202.png?alt=media&token=2d2cd19b-884a-40cc-8367-3efc16387cd0",
       color: "#1e3a8a",
     },
   ];
@@ -852,7 +852,7 @@ const App = () => {
             >
               <h2 className="text-4xl md:text-7xl font-black tracking-tighter text-[#9b1f15] uppercase hero-title leading-none">
                 KELEBIHAN <br />
-                <span className="text-[#ffcd0c] stroke-text-yellow">
+                <span className="text-white stroke-text-white bg-[#9b1f15]">
                   LAYANAN KAMI.
                 </span>
               </h2>
@@ -894,7 +894,7 @@ const App = () => {
           <div className="max-w-7xl mx-auto px-6 lg:px-10">
             <div className="flex flex-col lg:flex-row justify-between items-end mb-16 gap-8">
               <div className="max-w-xl">
-                <h2 className="text-5xl md:text-7xl font-black tracking-tighter text-[#9b1f15] uppercase leading-none italic">
+                <h2 className="text-5xl md:text-7xl font-black tracking-tighter text-[#9b1f15] uppercase leading-none">
                   PRICELIST <br />
                   NIB!KOE.
                 </h2>
@@ -923,9 +923,9 @@ const App = () => {
               {pricing.map((plan, idx) => {
                 const colorSchemes = {
                   emerald: {
-                    border: "border-emerald-100",
-                    text: "text-emerald-700",
-                    accent: "bg-emerald-600",
+                    border: "border-[#116D18]",
+                    text: "text-[#116D18]",
+                    accent: "bg-[#116D18]",
                   },
                   red: {
                     border: "border-red-100",
@@ -1175,9 +1175,9 @@ const App = () => {
                   transition={{ duration: 0.4, ease: "easeOut" }}
                   className="absolute inset-0 w-full h-full"
                 >
-                  <div className="grid md:grid-cols-2 h-full bg-[#9b1f15] rounded-[40px] overflow-hidden shadow-2xl border-2 border-[#ffcd0c]/20">
+                  <div className="grid md:grid-cols-1 h-full bg-[#9b1f15] rounded-[40px] overflow-hidden shadow-2xl border-2 border-[#ffcd0c]/20">
                     {/* Bagian Teks & CTA (Reduced Padding) */}
-                    <div className="p-8 md:p-14 flex flex-col justify-center relative">
+                    {/* <div className="p-8 md:p-14 flex flex-col justify-center relative">
                       <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_top_right,rgba(255,205,12,0.05),transparent)] pointer-events-none" />
                       <div className="relative z-10">
                         <div className="mb-4 text-[#ffcd0c] opacity-60">
@@ -1205,17 +1205,17 @@ const App = () => {
                           <ArrowRight size={18} />
                         </motion.button>
                       </div>
-                    </div>
+                    </div> */}
                     {/* Bagian Gambar */}
                     <div className="relative hidden md:block overflow-hidden group">
-                      <div className="absolute inset-0 bg-gradient-to-r from-[#9b1f15] to-transparent z-10" />
+                      <div className="absolute inset-0" />
                       <motion.img
                         initial={{ scale: 1.1 }}
                         animate={{ scale: 1 }}
                         transition={{ duration: 1.2 }}
                         src={carouselItems[currentSlide].image}
                         alt={carouselItems[currentSlide].title}
-                        className="w-full h-full object-cover grayscale brightness-75 group-hover:grayscale-0 group-hover:scale-105 transition-all duration-1000"
+                        className="w-full h-full object-cover"
                       />
                       <div className="absolute bottom-8 right-8 z-20 flex gap-2">
                         {carouselItems.map((_, i) => (
