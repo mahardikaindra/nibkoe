@@ -355,7 +355,7 @@ const App = () => {
                   />
                 </div>
                 <span className="text-xl font-extrabold tracking-tighter text-[#9b1f15] mb-2 uppercase">
-                  NIB<span className="text-[#ffcd0c]">!Koe</span>
+                  NIB!Koe
                 </span>
               </div>
               <span className="text-[8px] font-black text-[#9b1f15]/60 uppercase tracking-widest ml-12 -mt-3 group-hover:text-[#9b1f15] transition-colors">
@@ -1253,7 +1253,7 @@ const App = () => {
                   />
                 </div>
                 <span className="text-xl font-extrabold tracking-tighter text-[#9b1f15] mb-2 uppercase">
-                  NIB<span className="text-[#ffcd0c]">!Koe</span>
+                  NIB!Koe
                 </span>
               </div>
               <span className="text-[8px] font-black text-[#9b1f15]/60 uppercase tracking-widest ml-12 -mt-3 group-hover:text-[#9b1f15] transition-colors">
